@@ -29,9 +29,10 @@ colors = ["#75968f", "#a5bab7", "#c9d9d3", "#e2e2e2", "#dfccce", "#ddb7b1", "#cc
 mapper = LinearColorMapper(palette=colors, low=df.mode_fixation.min(), high=df.mode_fixation.max())
 
 #set up figure
-p = figure(plot_width=800, plot_height=300, title="Subject ID by time unit",
+p = figure(plot_width=800, plot_height=300, title="Area of Focus in 10s Units",
            x_range=list(data.index), y_range=list(reversed(data.columns)),
-           toolbar_location=None, tools="", x_axis_location="below")
+           toolbar_location=None, tools="", x_axis_location="below", x_axis_label="Time (s)", 
+           y_axis_label="Subject ID")
 
 p.rect(x="t_sec", y="subject id", width=1, height=1, source=source,
        line_color=None, fill_color=transform('mode_fixation', mapper))
